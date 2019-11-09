@@ -17,7 +17,7 @@ const FILTERS = [
 	"Booming",
 	"Cars",
 	"Culture",
-	"Dinig",
+	"Dining",
 	"Business",
 ];
 

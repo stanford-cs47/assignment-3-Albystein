@@ -22,7 +22,6 @@ import { material } from "react-native-typography"; //consider using this!
 import { Metrics, Colors } from "../Themes";
 
 import Article from "../Components/Article";
-import Filters from "../Components/Filters";
 
 export default class News extends Component {
 	static defaultProps = { articles: [], loadArticles: () => {} };
@@ -45,7 +44,7 @@ export default class News extends Component {
 		this.setState({ refreshing: false });
 	};
 	render() {
-		const { articles } = this.props;
+		const { articles, navigation } = this.props;
 		return (
 			<View style={styles.container}>
 				<FlatList
@@ -57,7 +56,9 @@ export default class News extends Component {
 					}
 					data={articles}
 					keyExtractor={(item, index) => `article-${index}`}
-					renderItem={({ item }) => <Article article={item} />}
+					renderItem={({ item }) => (
+						<Article article={item} navigation={navigation} />
+					)}
 				/>
 			</View>
 		);

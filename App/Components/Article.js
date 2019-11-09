@@ -15,7 +15,7 @@ export default props => {
 		article: { title, byline, snippet, date, url, image },
 	} = props;
 	const onArticlePress = useCallback(() => {
-		Linking.openURL(url);
+		props.navigation.navigate("Article", { url });
 	}, [url]);
 
 	const newDate = Date(date);
